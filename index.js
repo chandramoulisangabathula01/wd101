@@ -58,6 +58,18 @@ const saveUserForm = (event) => {
     const dob = document.getElementById('dob').value;
     const acceptTermsandcond = document.getElementById('acceptTerms').checked;
 
+    
+    // Calculate age from the provided date of birth
+    const today = new Date();
+    const birthDate = new Date(dob);
+    const age = today.getFullYear() - birthDate.getFullYear();
+
+    // Check if the user's age is between 18 and 55
+    if (age < 18 || age > 55) {
+        alert('Sorry, you must be between 18 and 55 years old to register.');
+        return;
+    }
+    
     const entry = {
         name,
         email,
